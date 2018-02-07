@@ -1,0 +1,17 @@
+<Page mounted="onMounted" unmounted="onUnmounted">
+
+    <ScrollView>
+        <div class="page-content">
+            <div class="content-box">
+                <h1 class="title">{{ pageTitle }}</h1>
+                <div class="body-text">{{ bodyText }}</div>
+                
+                <StackLayout horizontalAlign="right" wrapContent="true">
+                    <Button label="Cancel" click="cancel" />
+                    <Button label="Sign Up" primary="true" click="proceed" />
+                </StackLayout>
+            </div>
+        </div>
+    </ScrollView>
+
+</Page>

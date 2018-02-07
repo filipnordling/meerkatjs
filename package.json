@@ -1,0 +1,33 @@
+{
+  "name": "meerkat",
+  "version": "2.0.0",
+  "description": "MeerkatJS",
+  "author": "Filip Nordling",
+  "keywords": [],
+  "dependencies": {
+    "expr-eval": "^1.2.1",
+    "hammerjs": "^2.0.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "css": "^2.2.1",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.7.2",
+    "optimize-css-assets-webpack-plugin": "^1.3.1",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.17.0",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack -d -w",
+    "build": "NODE_ENV=production webpack --progress"
+  }
+}

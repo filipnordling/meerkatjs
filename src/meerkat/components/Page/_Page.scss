@@ -1,0 +1,28 @@
+@import "../../dependencies/variables";
+@import "../../dependencies/mixins";
+
+[data-mk-component="Page"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    @include transition(box-shadow map-get($transition, slow));
+
+    // States
+    &:not(.active) { display: none; }
+    &.display { display: block; }
+    &.display-on-top { z-index: 1; }
+    &.has-navbar {
+        height: calc(100% - #{map-get($navBar_height, small)});
+        padding-top: map-get($navBar_height, small);
+    }
+
+    // Breakpoints
+    @include breakpoint("medium") {
+        // States
+        &.has-navbar {
+            height: calc(100% - #{map-get($navBar_height, medium)});
+            padding-top: map-get($navBar_height, medium);
+        }
+    }
+}

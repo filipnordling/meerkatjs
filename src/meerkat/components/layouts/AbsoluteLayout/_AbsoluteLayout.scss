@@ -1,0 +1,17 @@
+@import "../../../dependencies/variables";
+@import "../../../dependencies/mixins";
+
+[data-mk-component="AbsoluteLayout"] {
+    position: relative;
+    // overflow: hidden;
+    
+    > * {
+        position: absolute;
+    }
+
+    // States
+    [data-mk-component="Page"] > & {
+        width: 100%;
+        height: 100%;
+    }
+}

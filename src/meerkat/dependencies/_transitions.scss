@@ -1,0 +1,80 @@
+[data-mk-component] {
+
+    // Fade
+    &.transition-fade-in {
+        @include animation(transition-fade-in 300ms ease-in-out);
+    } &.transition-fade-out {
+        @include animation(transition-fade-out 300ms ease-in-out);
+    }
+
+    // Slide left
+    &.transition-slideLeft-in {
+        @include animation(transition-slideLeft-in 300ms ease-in-out);
+    } &.transition-slideLeft-out {
+        @include animation(transition-slideLeft-out 300ms ease-in-out);
+    }
+
+    // Slide right
+    &.transition-slideRight-in {
+        @include animation(transition-slideRight-in 300ms ease-in-out);
+    } &.transition-slideRight-out {
+        @include animation(transition-slideRight-out 300ms ease-in-out);
+    }
+}
+
+// ANIMATIONS
+
+// Fade
+@include keyframes(transition-fade-in) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} @include keyframes(transition-fade-out) {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+// Slide left
+@include keyframes(transition-slideLeft-in) {
+    0% {
+        @include transform(translate3d(100%, 0, 0));
+    }
+    100% {
+        @include transform(none);
+    }
+} @include keyframes(transition-slideLeft-out) {
+    0% {
+        opacity: 1;
+        @include transform(none);
+    }
+    100% {
+        opacity: 0.75;
+        @include transform(translate3d(-50%, 0, 0));
+    }
+}
+
+// Slide right
+@include keyframes(transition-slideRight-in) {
+    0% {
+        @include transform(translate3d(-100%, 0, 0));
+    }
+    100% {
+        @include transform(none);
+    }
+} @include keyframes(transition-slideRight-out) {
+    0% {
+        opacity: 1;
+        @include transform(none);
+    }
+    100% {
+        opacity: 0.75;
+        @include transform(translate3d(50%, 0, 0));
+    }
+}

@@ -1,0 +1,29 @@
+<Page mounted="onMounted" unmounted="onUnmounted">
+
+    <NavBar shadow="false" border="true">
+        <div class="section left">
+            <NavBar.item icon="refresh" click="refreshApp" />
+        </div>
+        <div class="center">
+            <NavBar.item text="{{ pageTitle }}" isTitle="true" />
+        </div>
+        <div class="section right"></div>
+    </NavBar>
+
+    <ScrollView orientation="vertical">
+        <StackLayout orientation="vertical">
+            <Repeater items="{{ items }}" class="explore-items">
+                <Repeater.itemTemplate>
+                    <div class="item">
+                        <div class="image" style="{{ 'background-image: url(' || imageURL || ')' }}"></div>
+                        <div class="info">
+                            <div class="title">{{ title }}</div>
+                            <div class="description">{{ description }}</div>
+                        </div>
+                    </div>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </StackLayout>
+    </ScrollView>
+
+</Page>

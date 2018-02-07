@@ -1,0 +1,64 @@
+.explore-items {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-flow(row wrap);
+
+    .item {
+        position: relative;
+        width: 100%;
+        max-width: 480px;
+        margin: 20px;
+        border-radius: 8%;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        cursor: pointer;
+        @include transition(all map-get($transition, medium));
+        @include transform(scale(0.98));
+        @include user-select(none);
+
+        .image {
+            position: relative;
+            width: 100%;
+            background: $color_light 50% 50% no-repeat;
+            background-size: cover;
+            @include height-ratio(100%);
+            overflow: hidden;
+        }
+
+        .info {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            padding: 5% 10%;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 0, 0, 0.2);
+
+            .title {
+                margin-bottom: 10px;
+                font: { size: 20px; }
+            }
+
+            .description {
+                margin-bottom: 10px;
+                font: { size: 14px; }
+            }
+        }
+
+        // States
+        &:active {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            @include transform(none);
+        }
+
+        // Breakpoints
+        @include breakpoint("medium") {
+            .info {
+                .title { font-size: 28px; }
+                .description { font-size: 16px; }
+            }
+        }
+    }
+}

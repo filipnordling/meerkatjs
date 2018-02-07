@@ -1,0 +1,36 @@
+@import "../../../dependencies/variables";
+@import "../../../dependencies/mixins";
+
+[data-mk-component="StackLayout"] {
+    position: relative;
+    // overflow: hidden;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+
+    // States
+    [data-mk-component="Page"] > & {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.horizontal {
+        &.left { @include justify-content(flex-start); }
+        &.right { @include justify-content(flex-end); }
+
+        &.top { @include align-items(flex-start); }
+        &.bottom { @include align-items(flex-end); }
+    }
+    &.vertical {
+        @include flex-direction(column);
+
+        &.left { @include align-items(flex-start); }
+        &.right { @include align-items(flex-end); }
+
+        &.top { @include justify-content(flex-start); }
+        &.bottom { @include justify-content(flex-end); }
+    }
+    &.wrap-content {
+        @include flex-flow(row wrap);
+    }
+}

@@ -1,0 +1,12 @@
+// @import "./dependencies/variables";
+@import "./dependencies/mixins";
+// @import "./dependencies/animations";
+@import "./dependencies/transitions";
+@import "./components/components";
+@import "../../app/app";
+
+
+*, *:before, *:after {
+    @include box-sizing(border-box);
+    -webkit-tap-highlight-color: transparent;
+}

@@ -1,0 +1,200 @@
+@mixin height-ratio($val) {
+    &:after {
+        content: "";
+        display: block;
+        padding-bottom: $val;
+    }
+}
+
+@mixin box-sizing($prop) {
+    -webkit-box-sizing: $prop;
+    -moz-box-sizing: $prop;
+    -ms-box-sizing: $prop;
+    box-sizing: $prop;
+}
+
+@mixin position-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+@mixin user-select($value) {
+    -webkit-user-select: $value;
+    -moz-user-select: $value;
+    user-select: $value;
+}
+
+@mixin transition($prop...) {
+    -webkit-transition: $prop;
+    -moz-transition: $prop;
+    -ms-transition: $prop;
+    transition: $prop;
+}
+
+@mixin transform($prop) {
+    -webkit-transform: $prop;
+    -moz-transform: $prop;
+    -ms-transform: $prop;
+    transform: $prop;
+};
+
+@mixin transform-origin($prop) {
+    -webkit-transform-origin: $prop;
+    -moz-transform-origin: $prop;
+    -ms-transform-origin: $prop;
+    transform-origin: $prop;
+};
+
+@mixin transform-style($prop) {
+    -webkit-transform-style: $prop;
+    -moz-transform-style: $prop;
+    -ms-transform-style: $prop;
+    transform-style: $prop;
+};
+
+@mixin filter($prop) {
+    -webkit-filter: $prop;
+    -moz-filter: $prop;
+    -ms-filter: $prop;
+    filter: $prop;
+};
+
+@mixin filter-grayscale($value) {
+    $percent: #{$value * 100%};
+
+    // -webkit-filter: grayscale(1);/*not sure about this one*/
+    -webkit-filter: grayscale(percent);
+    -moz-filter: grayscale(percent);
+    -o-filter: grayscale(percent);
+    -ms-filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=$value) progid:DXImageTransform.Microsoft.Light(); // ie9 >
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayScale=$value) progid:DXImageTransform.Microsoft.Light(); // ie5.5 > ie8
+};
+
+@mixin box-shadow($prop...) {
+    -webkit-box-shadow: $prop;
+    -moz-box-shadow: $prop;
+    -ms-box-shadow: $prop;
+    box-shadow: $prop;
+};
+
+@mixin display-flex {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin display-inline-flex {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin align-items($prop) {
+    -webkit-align-items: $prop;
+    -ms-align-items: $prop;
+    align-items: $prop;
+}
+
+@mixin align-self($prop) {
+    -webkit-align-self: $prop;
+    -ms-align-self: $prop;
+    align-self: $prop;
+}
+
+@mixin justify-content($prop) {
+    -webkit-justify-content: $prop;
+    -ms-justify-content: $prop;
+    justify-content: $prop;
+}
+
+@mixin flex-flow($prop) {
+    -webkit-flex-flow: $prop;
+    -ms-flex-flow: $prop;
+    flex-flow: $prop;
+}
+
+@mixin flex-direction($prop) {
+    -webkit-flex-direction: $prop;
+    -ms-flex-direction: $prop;
+    flex-direction: $prop;
+}
+
+@mixin flex($prop) {
+    -webkit-flex: $prop;
+    -moz-flex: $prop;
+    -ms-flex: $prop;
+    flex: $prop;
+}
+
+@mixin order($prop) {
+    -webkit-order: $prop;
+    -moz-order: $prop;
+    -ms-order: $prop;
+    order: $prop;
+}
+
+@mixin justify-center {
+    text-align: justify;
+    -moz-text-align-last: center;
+    text-align-last: center;
+}
+
+@mixin breakpoint($size, $exclusive: false) {
+    $bp: 0px;
+
+    @if $size == "small" {
+        $bp: if($exclusive == true, map-get($vbp, small), $bp);
+    } @else if $size == "medium" {
+        $bp: if($exclusive == true, map-get($vbp, small), #{map-get($vbp, small) + 1px});
+    } @else if $size == "large" {
+        $bp: if($exclusive == true, map-get($vbp, medium),  #{map-get($vbp, medium) + 1px});
+    }
+
+    @if $exclusive == true {
+        @media screen and (max-width: $bp) { @content; }
+    } @else {
+        @media screen and (min-width: $bp) { @content; }
+    }
+}
+
+// ANIMATIONS
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} { @content; }
+    @-moz-keyframes #{$name} { @content; }
+    @keyframes #{$name} { @content; }
+}
+
+@mixin animation($props...) {
+    -webkit-animation: $props;
+    -moz-animation: $props;
+    animation: $props;
+}
+
+// OSX FONT SMOOTHING
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+// INPUT PLACEHOLDER
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-moz-placeholder { @content; }
+}
+
+// CLEARFIX
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}

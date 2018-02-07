@@ -1,0 +1,78 @@
+@import "../../dependencies/variables";
+@import "../../dependencies/mixins";
+
+[data-mk-component="NavBar"] {
+    position: absolute;
+    top: 0; left: 0;
+    // top: -#{map-get($navBar_height, small)}; left: 0;
+    z-index: 1;
+    width: 100%;
+    height: map-get($navBar_height, small);
+    background: #ffffff;
+    @include display-flex;
+    @include justify-content(space-between);
+
+    &.disabled { display: none; }
+    &.border { border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+    &.shadow { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+
+    .section {
+        height: 100%;
+    }
+
+    .item {
+        
+    }
+    
+    // Breakpoints
+    @include breakpoint("medium") {
+        // top: -#{map-get($navBar_height, medium)};
+        height: map-get($navBar_height, medium);
+    }
+}
+
+[data-mk-component="NavBarItem"] {
+    width: map-get($navBar_height, small);
+    height: 100%;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include user-select(none);
+    @include transition(all map-get($transition, fast));
+
+    .icon {
+        font-size: 28px;
+    }
+    .text {
+        font: { size: 20px; weight: 600; }
+    }
+
+    // States
+    &:not(.title) {
+        color: $color_dark;
+    }
+
+    &.title {
+        position: absolute;
+        left: 50%;
+        @include transform(translate3d(-50%, 0, 0));
+    }
+
+    &.clickable {
+        cursor: pointer;
+        
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    // Breakpoints
+    @include breakpoint("medium") {
+        width: map-get($navBar_height, medium);
+
+        .icon {
+            font-size: 32px;
+        }
+        .text { font-size: 24px; }
+    }
+}

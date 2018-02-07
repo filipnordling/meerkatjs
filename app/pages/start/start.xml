@@ -1,0 +1,11 @@
+<Page mounted="onMounted" unmounted="onUnmounted">
+    
+    <Frame page="pages/tabs/tab1/tab1" />
+
+    <TabBar border="true">
+        <TabBar.item icon="explore" click="goTab1" />
+        <TabBar.item icon="settings" click="goTab2" />
+        <TabBar.item icon="forward" click="goTestPage" />
+    </TabBar>
+
+</Page>

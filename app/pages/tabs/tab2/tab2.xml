@@ -1,0 +1,27 @@
+<Page mounted="onMounted" unmounted="onUnmounted">
+
+    <NavBar shadow="false" border="true">
+        <div class="section left">
+            <!-- <NavBar.item icon="explore" click="navBarItemClick" /> -->
+        </div>
+        <div class="center">
+            <NavBar.item text="{{ pageTitle }}" isTitle="true" />
+        </div>
+        <div class="section right">
+            <!-- <NavBar.item icon="settings" click="navBarItemClick2" /> -->
+        </div>
+    </NavBar>
+
+    <ScrollView orientation="vertical">
+        <StackLayout orientation="vertical">
+            <Repeater items="{{ items }}">
+                <Repeater.itemTemplate>
+                    <div>
+                        <p>{{ test }}</p>
+                    </div>
+                </Repeater.itemTemplate>
+            </Repeater>
+        </StackLayout>
+    </ScrollView>
+
+</Page>

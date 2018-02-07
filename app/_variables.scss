@@ -1,0 +1,34 @@
+// Color scheme
+$color_default:    #2B3339;
+$color_primary:    #156AC2;
+$color_secondary:  #0881A5;
+$color_background: #4F5C64;
+$color_input:      #E5EBF1;
+$color_light:      #F4F5F7;
+$color_medium:     #B0BBC3;
+$color_dark:       #65717A;
+$color_link:        $color_secondary;
+$color_success:    #38C770;
+$color_warning:    #EEC410;
+$color_alert:      #E12A48;
+
+// General
+$font_family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+// Viewport breakpoints
+$vbp: ( small: 640px, medium: 1024px );
+
+// NavBar
+$navBar_height: ( small: 64px, medium: 80px );
+
+// TabBar
+$tabBar_height: ( small: 64px, medium: 80px );
+
+// Transitions
+$transition: (
+    fastest: 100ms ease-in-out,
+    fast:    150ms ease-in-out,
+    medium:  300ms ease-in-out,
+    slow:    600ms ease-in-out,
+    slowest: 1200ms ease-in-out
+);

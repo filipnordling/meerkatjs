@@ -1,0 +1,51 @@
+@import "../../dependencies/variables";
+@import "../../dependencies/mixins";
+@import "../../dependencies/animations";
+
+[data-mk-component="LoadingIndicator"] {
+    $spinner_offset: 187;
+    $spinner_duration: 1400ms;
+
+    position: relative;
+    opacity: 0;
+    pointer-events: none;
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(center);
+    @include transition(all map-get($transition, slow));
+    
+    &.active {
+        opacity: 1;
+
+        .spinner {
+            @include animation(rotator $spinner_duration infinite linear);
+
+            .path {
+                @include animation(loadingIndicator_dash $spinner_duration ease-in-out infinite);
+            }
+        }
+    }
+
+    .spinner {
+
+        .path {
+            stroke-dasharray: $spinner_offset;
+            stroke-dashoffset: 0;
+            transform-origin: center;
+            stroke: $color_default;
+        }
+    }
+
+    // Animations
+    @include keyframes(loadingIndicator_dash) {
+        0% { stroke-dashoffset: $spinner_offset; }
+        50% {
+            stroke-dashoffset: $spinner_offset/4;
+            @include transform(rotate(135deg));
+        }
+        100% {
+            stroke-dashoffset: $spinner_offset;
+            @include transform(rotate(450deg));
+        }
+    }
+}
